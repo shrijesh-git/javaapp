@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: Build job
-    runs-on: palmeto
+    runs-on: ["self-hosted", "Linux"]
     steps:
       - name: checkout code
         uses: actions/checkout@v6
