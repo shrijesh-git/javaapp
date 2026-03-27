@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: Build job
-    runs-on: ubuntu-latest
+    runs-on: windowsrunner
     steps:
       - name: checkout code
         uses: actions/checkout@v6
