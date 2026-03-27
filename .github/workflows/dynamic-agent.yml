@@ -1,5 +1,4 @@
-dynamic runner
----
+
 name: Smart Build Pipeline
 
 on:
