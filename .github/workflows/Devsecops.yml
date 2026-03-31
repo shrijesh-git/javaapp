@@ -74,6 +74,7 @@ jobs:
           format: 'table'
           severity: 'CRITICAL,HIGH'
           exit-code: '1'
+          trivyignores: .trivyignore
         continue-on-error: true
 
       - name: Run Trivy SARIF Report
@@ -85,6 +86,7 @@ jobs:
           format: 'sarif'
           output: 'trivy-sca-results.sarif'
           severity: 'CRITICAL,HIGH'
+          trivyignores: .trivyignore
 
       - name: Upload Trivy SARIF
         if: always()
@@ -262,6 +264,7 @@ jobs:
           image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:scan
           format: 'table'
           severity: 'CRITICAL,HIGH'
+          trivyignores: .trivyignore
 
       # --- Container Scan: JSON output for quality gate ---
       - name: Trivy Container Scan - JSON
@@ -271,6 +274,7 @@ jobs:
           format: 'json'
           output: 'trivy-image-results.json'
           severity: 'CRITICAL,HIGH'
+          trivyignores: .trivyignore
 
       # --- Container Scan: SARIF for Security tab ---
       - name: Trivy Container Scan - SARIF
@@ -281,6 +285,7 @@ jobs:
           format: 'sarif'
           output: 'trivy-image-results.sarif'
           severity: 'CRITICAL,HIGH'
+          trivyignores: .trivyignore
 
       - name: Upload Container Scan SARIF
         if: always()
